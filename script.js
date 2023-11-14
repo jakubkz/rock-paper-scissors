@@ -9,6 +9,29 @@ function getComputerChoice() {
       return "SCISSORS";
   }
 }
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
-function playRound(playerSelection, computerSelection) {}
+function playRound(playerSelection, computerSelection) {
+  console.log(playerSelection, computerSelection);
+  if (playerSelection === computerSelection) {
+    alert(`It's a draw`);
+  } else if (
+    (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
+    (playerSelection === "PAPER" && computerSelection === "ROCK") ||
+    (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+  ) {
+    alert("You have just won the battle");
+  } else if (
+    (playerSelection === "SCISSORS" && computerSelection === "ROCK") ||
+    (playerSelection === "ROCK" && computerSelection === "PAPER") ||
+    (playerSelection === "PAPER" && computerSelection === "SCISSORS")
+  ) {
+    alert("You have just lost the battle");
+  }
+}
+
+let playerSelection = prompt(
+  "Make a choice between rock paper and scissors"
+).toUpperCase();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
